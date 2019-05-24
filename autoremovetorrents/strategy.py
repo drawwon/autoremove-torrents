@@ -11,6 +11,7 @@ from .condition.torrentsize import TorrentSizeCondition
 from .condition.torrentnumber import TorrentNumberCondition
 from .condition.donothing import EmptyCondition
 from .conditionparser import ConditionParser
+from .exception.unsupportedproperty import UnsupportedProperty
 
 class Strategy(object):
     def __init__(self, name, conf):
@@ -71,8 +72,14 @@ class Strategy(object):
         for conf in self._conf:
             if conf in conditions:
                 # Applying condition processor
-                cond = conditions[conf](self._conf[conf])
-                cond.apply(self.remain_list)
+                try:
+                    cond = conditions[conf](self._conf[conf])
+                    cond.apply(self.remain_list)
+                except AttributeError as e:
+                    raise UnsupportedProperty(
+                        "%s. Your client may not support this property, so the condition %s does not work." % \
+                        (str(e), conf)
+                    )
                 # Output
                 self.remain_list = cond.remain
                 self.remove_list.update(cond.remove)
