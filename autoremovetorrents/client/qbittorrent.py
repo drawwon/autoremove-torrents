@@ -90,6 +90,8 @@ class qBittorrent(object):
             status = TorrentStatus.Checking
         elif state == 'pausedUP' or state == 'pausedDL':
             status = TorrentStatus.Paused
+        elif state == 'error':
+            status = TorrentStatus.Error
         else:
             status = TorrentStatus.Unknown
         return status
