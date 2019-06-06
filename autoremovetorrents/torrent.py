@@ -8,7 +8,7 @@ from .torrentstatus import TorrentStatus
 class Torrent(object):
     def __init__(self):
         # Proper attributes:
-        # hash, name, category, tracker, status, size, ratio, uploaded, create_time, seeding_time
+        # hash, name, category, tracker, status, stalled, size, ratio, uploaded, create_time, seeding_time
         pass
 
     # Format torrent info

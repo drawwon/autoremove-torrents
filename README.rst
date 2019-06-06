@@ -1,6 +1,6 @@
 Auto Remove Torrents
 ======================
-|PyPI| |TravisCI| |Coverage| |Codacy| |MIT|
+|PyPI| |TravisCI| |Coverage| |Codacy| |Downloads| |MIT|
 
 This program can help you to remove your torrents. Now you don't need to worry about your disk space - according to your strategies, the program will check each torrent if it satisfies the remove condition; If so, delete it automatically.
 
@@ -20,6 +20,8 @@ Readme version in other languages: `简体中文`_.
    :target: https://github.com/jerrymakesjelly/autoremove-torrents/blob/master/LICENSE
 .. |PyPI| image:: https://badge.fury.io/py/autoremove-torrents.svg
     :target: https://badge.fury.io/py/autoremove-torrents
+.. |Downloads| image:: https://img.shields.io/pypi/dm/autoremove-torrents.svg
+    :target: https://pypi.org/project/autoremove-torrents/
 
 Requirements
 -------------
@@ -106,6 +108,10 @@ Screenshot
 
 Changelog
 ----------
+**Thu, 6 Jun 2019**: Version 1.4.5.
+
+* Added status `StalledUpload` and `StalledDownload`. (#34)
+
 **Wed, 22 May 2019**: Version 1.4.4.
 
 * Fixed a bug that when condition `seed_size` / `maximum_number` is used together with condtion `ratio` / `create_time` / `seeding_time`, the task will fail. (#33)
