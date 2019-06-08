@@ -7,6 +7,8 @@ from .filter.status import StatusFilter
 from .condition.seedingtime import SeedingTimeCondition
 from .condition.createtime import CreateTimeCondition
 from .condition.ratio import RatioCondition
+from .condition.downloadspeed import DownloadSpeedCondition
+from .condition.uploadspeed import UploadSpeedCondition
 from .condition.torrentsize import TorrentSizeCondition
 from .condition.torrentnumber import TorrentNumberCondition
 from .condition.donothing import EmptyCondition
@@ -65,6 +67,8 @@ class Strategy(object):
             'seeding_time': SeedingTimeCondition,
             'create_time': CreateTimeCondition,
             'ratio': RatioCondition,
+            'min_downloadspeed': DownloadSpeedCondition,
+            'min_uploadspeed': UploadSpeedCondition,
             'seed_size': TorrentSizeCondition,
             'maximum_number': TorrentNumberCondition,
             'nothing': EmptyCondition
