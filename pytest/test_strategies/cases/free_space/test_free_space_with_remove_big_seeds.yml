@@ -1,0 +1,7 @@
+test:
+  free_space:
+    path: /somedir
+    min: 20
+    action: remove-big-seeds
+remove:
+  - Torrent - 2
