@@ -1,4 +1,4 @@
-import shutil
+import psutil
 from .sortbase import ConditionWithSort
 
 class FreeSpaceCondition(ConditionWithSort):
@@ -10,7 +10,7 @@ class FreeSpaceCondition(ConditionWithSort):
     def apply(self, torrents):
         torrents = list(torrents)
         ConditionWithSort.sort_torrents(self, torrents)
-        free_space = shutil.disk_usage(self._path)[2]
+        free_space = psutil.disk_usage(self._path)[2]
         for torrent in torrents:
             if free_space < self._min:
                 self.remove.add(torrent)

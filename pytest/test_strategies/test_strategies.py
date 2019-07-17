@@ -39,7 +39,7 @@ def test_strategies(mocker, test_data, test_env):
                     try:
                         # Make strategy and run
                         with mocker.patch('time.time', return_value=test_env['time.time']):
-                            with mocker.patch('shutil.disk_usage', return_value=test_env['shutil.disk_usage']):
+                            with mocker.patch('psutil.disk_usage', return_value=test_env['psutil.disk_usage']):
                                 stgy = Strategy(conf_file, conf['test'])
                                 stgy.execute(test_data)
 
