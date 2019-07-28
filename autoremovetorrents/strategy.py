@@ -11,6 +11,7 @@ from .condition.downloadspeed import DownloadSpeedCondition
 from .condition.uploadspeed import UploadSpeedCondition
 from .condition.torrentsize import TorrentSizeCondition
 from .condition.torrentnumber import TorrentNumberCondition
+from .condition.size import SizeCondition
 from .condition.donothing import EmptyCondition
 from .conditionparser import ConditionParser
 from .exception.unsupportedproperty import UnsupportedProperty
@@ -71,6 +72,7 @@ class Strategy(object):
             'min_uploadspeed': UploadSpeedCondition,
             'seed_size': TorrentSizeCondition,
             'maximum_number': TorrentNumberCondition,
+            'size': SizeCondition,
             'nothing': EmptyCondition
         }
         for conf in self._conf:
