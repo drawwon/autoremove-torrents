@@ -94,7 +94,9 @@ class uTorrent(object):
                     torrent[0], torrent[2], torrent[11], trackers, uTorrent._judge_status(torrent[1], torrent[4]), 
                     False, # uTorrent never has stall status
                     torrent[3], torrent[7]/1000,
-                    torrent[6], sys.maxsize, -1)
+                    torrent[6], sys.maxsize, -1,
+                    int(time.time()) # uTorrent doesn't have last activity time field
+                    )
         # Not Found
         raise NoSuchTorrent('No such torrent.')
 

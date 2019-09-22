@@ -76,7 +76,7 @@ class Transmission(object):
     def torrent_properties(self, torrent_hash):
         result = self._make_transmission_request('torrent-get',
             {'ids': [torrent_hash],
-            'fields': ['hashString', 'name', 'trackers', 'status', 'totalSize', 'uploadRatio', 'uploadedEver', 'addedDate', 'secondsSeeding', 'isStalled']}
+            'fields': ['hashString', 'name', 'trackers', 'status', 'totalSize', 'uploadRatio', 'uploadedEver', 'addedDate', 'secondsSeeding', 'isStalled', 'activityDate']}
             )
         if len(result['torrents']) == 0: # No such torrent
             raise NoSuchClient("No such torrent of hash '%s'." % torrent_hash)
@@ -87,7 +87,7 @@ class Transmission(object):
             Transmission._judge_status(torrent['status']), 
             torrent['isStalled'],
             torrent['totalSize'], torrent['uploadRatio'],
-            torrent['uploadedEver'], torrent['addedDate'], torrent['secondsSeeding'])
+            torrent['uploadedEver'], torrent['addedDate'], torrent['secondsSeeding'], torrent['activityDate'])
 
     # Judge Torrent Status
     @staticmethod

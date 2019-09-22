@@ -58,7 +58,8 @@ class Task(object):
                     0,
                     0,
                     sys.maxsize, # No create time
-                    -1 # No seeding time
+                    -1, # No seeding time
+                    sys.maxsize # No last active time
                 ))
 
     # Login client

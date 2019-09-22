@@ -5,6 +5,7 @@ from .condition.base import Comparer
 from .condition.createtime import CreateTimeCondition
 from .condition.ratio import RatioCondition
 from .condition.seedingtime import SeedingTimeCondition
+from .condition.lastactivity import LastActivityCondition
 from .exception.nosuchcondition import NoSuchCondition
 from .exception.syntaxerror import ConditionSyntaxError
 
@@ -13,7 +14,8 @@ class ConditionParser(object):
     _condition_map = {
         'create_time': CreateTimeCondition,
         'ratio': RatioCondition,
-        'seeding_time': SeedingTimeCondition
+        'seeding_time': SeedingTimeCondition,
+        'last_activity': LastActivityCondition
     }
 
     # Condition expression

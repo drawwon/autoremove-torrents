@@ -168,6 +168,11 @@ class qBittorrent(object):
                 # Get other information
                 properties = self._request_handler.torrent_generic_properties(torrent_hash).json()
                 trackers = self._request_handler.torrent_trackers(torrent_hash).json()
+                # For qBittorrent 3.x, the last activity field doesn't exist.
+                # We use current timestamp to avoid erroneous deletion.
+                last_activity = int(time.time())
+                if 'last_activity' in torrent:
+                    last_activity = torrent['last_activity']
                 return Torrent(
                     torrent['hash'], torrent['name'],
                     torrent['category'] if 'category' in torrent else torrent['label'],
@@ -176,7 +181,7 @@ class qBittorrent(object):
                     torrent['state'] == 'stalledUP' or torrent['state'] == 'stalledDL',
                     torrent['size'], torrent['ratio'],
                     properties['total_uploaded'], properties['addition_date'],
-                    properties['seeding_time'])
+                    properties['seeding_time'], last_activity)
 
     # Judge Torrent Status (qBittorrent doesn't have stopped status)
     @staticmethod

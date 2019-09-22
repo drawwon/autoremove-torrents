@@ -27,7 +27,8 @@ def test_data():
             torrent['ratio'],
             torrent['uploaded'],
             torrent['added_on'],
-            torrent['seeding_time']
+            torrent['seeding_time'],
+            torrent['last_activity']
         ))
 
     return input_torrents

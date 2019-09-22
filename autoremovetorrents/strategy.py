@@ -9,6 +9,7 @@ from .condition.createtime import CreateTimeCondition
 from .condition.ratio import RatioCondition
 from .condition.torrentsize import TorrentSizeCondition
 from .condition.torrentnumber import TorrentNumberCondition
+from .condition.lastactivity import LastActivityCondition
 from .condition.donothing import EmptyCondition
 from .conditionparser import ConditionParser
 
@@ -66,6 +67,7 @@ class Strategy(object):
             'ratio': RatioCondition,
             'seed_size': TorrentSizeCondition,
             'maximum_number': TorrentNumberCondition,
+            'last_activity': LastActivityCondition,
             'nothing': EmptyCondition
         }
         for conf in self._conf:
